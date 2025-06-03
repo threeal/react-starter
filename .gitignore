@@ -1,6 +1,5 @@
 .*
 !.git*
-!.eslint*
 
 dist/
 node_modules/
