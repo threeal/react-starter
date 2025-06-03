@@ -1,5 +1,6 @@
 .*
 !.git*
+!.prettierignore
 
 dist/
 node_modules/
