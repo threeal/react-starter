@@ -27,7 +27,7 @@ jobs:
         run: pnpm install
 
       - name: Build App
-        run: pnpm build
+        run: pnpm vite build
 
       - name: Upload App
         uses: actions/upload-pages-artifact@v3.0.1
