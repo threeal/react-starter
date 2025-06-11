@@ -22,7 +22,10 @@ jobs:
         run: pnpm prettier --check .
 
       - name: Check Lint
-        run: pnpm lint
+        run: pnpm eslint
+
+      - name: Check Types
+        run: pnpm tsc --noEmit
 
       - name: Build App
-        run: pnpm build
+        run: pnpm vite build
