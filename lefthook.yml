@@ -18,7 +18,7 @@ pre-commit:
     - name: check types
       run: pnpm tsc --noEmit
       glob:
-        - "*.ts"
+        - "*.{ts,tsx}"
         - .npmrc
         - pnpm-lock.yaml
         - tsconfig.json
