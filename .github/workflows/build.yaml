@@ -27,5 +27,8 @@ jobs:
       - name: Check Types
         run: pnpm tsc --noEmit
 
+      - name: Test App
+        run: pnpm test
+
       - name: Build App
         run: pnpm vite build
