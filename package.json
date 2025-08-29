@@ -14,7 +14,7 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@tsconfig/vite-react": "^6.3.6",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
