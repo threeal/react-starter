@@ -22,7 +22,7 @@ jobs:
         run: pnpm tsc
 
       - name: Test App
-        run: pnpm test
+        run: pnpm vitest run
 
       - name: Check Formatting
         run: pnpm prettier --check .
