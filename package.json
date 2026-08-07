@@ -3,9 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "prepare": "playwright install chromium --only-shell",
-    "test": "vitest run"
+    "prepare": "playwright install chromium --only-shell"
   },
   "dependencies": {
     "react": "^19.2.8",

@@ -44,7 +44,7 @@ For more information on pnpm, including how to add dependencies or run tools, re
 Run the development version of the app using:
 
 ```sh
-pnpm dev
+pnpm vite
 ```
 
 While viewing the development version, you can modify the app by updating the source code in the [`src`](./src) directory. You can also modify the [`index.html`](./index.html) file to update the app’s metadata, such as the title and icon. If you're new to [React](https://react.dev/), refer to [this documentation](https://react.dev/learn) for guidance.
@@ -56,7 +56,7 @@ Test files in this template are named `*.test.tsx` and typically correspond to t
 After writing the tests, run them with:
 
 ```sh
-pnpm test
+pnpm vitest run
 ```
 
 ### Deploying the App
