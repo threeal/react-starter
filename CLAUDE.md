@@ -73,8 +73,6 @@ lefthook run pre-commit --all-files  # all files — matches what CI runs
 
 If any file changes during the run, re-stage the changed files and retry.
 
-CI (`.github/workflows/ci.yaml`) runs `lefthook run pre-commit --all-files` to validate the pre-commit hook, then runs `pnpm vitest run` and `pnpm vite build` as separate steps.
-
 ## Testing
 
 ```sh
