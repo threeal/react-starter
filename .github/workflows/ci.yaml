@@ -12,23 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7.0.1
 
+      - name: Setup Lefthook
+        uses: threeal/setup-lefthook-action@v1.0.0
+
       - name: Setup pnpm
         uses: threeal/setup-pnpm-action@v2.0.0
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Check types
-        run: pnpm tsc
+      - name: Check pre-commit hook
+        run: lefthook run pre-commit --all-files
 
       - name: Test
         run: pnpm vitest run
-
-      - name: Check formatting
-        run: pnpm prettier --check .
-
-      - name: Check lint
-        run: pnpm eslint
 
       - name: Build
         run: pnpm vite build

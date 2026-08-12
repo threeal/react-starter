@@ -35,7 +35,7 @@ Linter configured in `eslint.config.ts`.
 
 Automates CI/CD. Workflow files:
 
-- **`.github/workflows/ci.yaml`** — Triggers on push to `main`, pull requests, and manual dispatch. Type-checks, tests, checks formatting and lint, and builds the app.
+- **`.github/workflows/ci.yaml`** — Triggers on push to `main`, pull requests, and manual dispatch. Validates the pre-commit hook, tests, and builds the app.
 - **`.github/workflows/deploy.yaml`** — Triggers on push to `main` and manual dispatch. Builds the app and deploys it to GitHub Pages.
 
 ### Lefthook
@@ -68,12 +68,12 @@ Run the pre-commit hook to check types, formatting, and lint locally:
 
 ```sh
 lefthook run pre-commit              # staged files only (default)
-lefthook run pre-commit --all-files  # all files
+lefthook run pre-commit --all-files  # all files — matches what CI runs
 ```
 
 If any file changes during the run, re-stage the changed files and retry.
 
-CI (`.github/workflows/ci.yaml`) doesn't invoke Lefthook — it runs `pnpm tsc`, `pnpm vitest run`, `pnpm prettier --check .`, `pnpm eslint`, and `pnpm vite build` as separate steps instead.
+CI (`.github/workflows/ci.yaml`) runs `lefthook run pre-commit --all-files` to validate the pre-commit hook, then runs `pnpm vitest run` and `pnpm vite build` as separate steps.
 
 ## Testing
 
