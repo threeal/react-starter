@@ -4,36 +4,36 @@ on:
   push:
     branches: [main]
 jobs:
-  deploy-app:
-    name: Deploy App
+  deploy-pages:
+    name: Deploy Pages
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
       pages: write
     environment:
       name: github-pages
-      url: ${{ steps.deploy-app.outputs.page_url }}
+      url: ${{ steps.deploy-pages.outputs.page_url }}
     concurrency:
       group: pages
       cancel-in-progress: true
     steps:
-      - name: Checkout Project
+      - name: Checkout
         uses: actions/checkout@v7.0.1
 
       - name: Setup pnpm
         uses: threeal/setup-pnpm-action@v2.0.0
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install
 
-      - name: Build App
+      - name: Build
         run: pnpm vite build
 
-      - name: Upload App
+      - name: Upload pages
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: dist
 
-      - name: Deploy App
-        id: deploy-app
+      - name: Deploy pages
+        id: deploy-pages
         uses: actions/deploy-pages@v5.0.0
