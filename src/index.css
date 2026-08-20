@@ -21,31 +21,16 @@ body {
   min-height: 100vh;
 }
 
-button {
-  transition: border-color 0.25s;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  padding: 0.6em 1.2em;
-  font-weight: 500;
-  font-size: 1em;
-  font-family: inherit;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1280px;
+  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     background-color: #ffffff;
     color: #213547;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
