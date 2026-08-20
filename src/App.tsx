@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -7,6 +7,7 @@ export default function App() {
     <>
       <button
         type="button"
+        className={styles.button}
         onClick={() => {
           setCount((count) => count + 1);
         }}
