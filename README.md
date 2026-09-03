@@ -24,7 +24,8 @@ lefthook install
 
 Replace or extend the template files to fit your project:
 
-- **`src/App.tsx`** — Replace with your actual application UI.
+- **`src/Counter.tsx`** — Replace with your own component, or remove it entirely.
+- **`src/index.tsx`** — Extend directly, or compose in additional components, as your app grows.
 - **`index.html`** — Update the page title, icon, and other metadata.
 - **`CLAUDE.md`** — Replace with guidance specific to your project.
 - **`LICENSE`** — Replace with your preferred license, or keep the [Unlicense](https://unlicense.org/).

@@ -12,8 +12,8 @@ This is a minimalist React starter template written in TypeScript targeting the 
 
 ### Source Files
 
-- **`src/index.tsx`** — Entry point; mounts `<App />` into the `#root` element (defined in `index.html`) inside `StrictMode`.
-- **`src/App.tsx`** — The sample component tree — a placeholder to replace with your actual application UI.
+- **`src/index.tsx`** — Entry point; mounts components into the `#root` element (defined in `index.html`) inside `StrictMode`.
+- **`src/Counter.tsx`** — The sample component — a placeholder to replace with your own.
 - **`src/*.css`** — Stylesheets imported directly into their corresponding component/entry files.
 - **`src/*.test.tsx`** — Vitest test files co-located with source.
 
