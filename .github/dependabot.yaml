@@ -12,3 +12,10 @@ updates:
     cooldown:
       default-days: 1
     versioning-strategy: increase
+    groups:
+      react:
+        patterns:
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
