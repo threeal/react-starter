@@ -10,7 +10,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@eslint-react/eslint-plugin": "^5.19.0",
+    "@eslint-react/eslint-plugin": "^5.19.1",
     "@eslint/js": "^10.0.1",
     "@tsconfig/vite-react": "^8.1.1",
     "@types/node": "^26.5.1",
