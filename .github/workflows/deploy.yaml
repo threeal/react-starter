@@ -7,12 +7,6 @@ jobs:
   deploy-pages:
     name: Deploy Pages
     runs-on: ubuntu-24.04
-    permissions:
-      id-token: write
-      pages: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy-pages.outputs.page_url }}
     concurrency:
       group: pages
       cancel-in-progress: true
@@ -29,11 +23,9 @@ jobs:
       - name: Build
         run: pnpm vite build
 
-      - name: Upload pages
-        uses: actions/upload-pages-artifact@v5.0.0
-        with:
-          path: dist
-
       - name: Deploy pages
-        id: deploy-pages
-        uses: actions/deploy-pages@v5.0.1
+        uses: cloudflare/wrangler-action@v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }}

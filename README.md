@@ -61,4 +61,15 @@ After committing, push to `main` or open a pull request from another branch — 
 
 ## Deploying
 
-Set up your GitHub repository to enable deployment to GitHub Pages using GitHub Actions (see [this guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)). Then push to `main` — CI will automatically build the app and deploy it to GitHub Pages.
+Authenticate Wrangler and create an empty Cloudflare Pages project:
+
+```sh
+pnpm wrangler login
+pnpm wrangler pages project create <project-name> --production-branch main
+```
+
+Add `<project-name>` as the `CLOUDFLARE_PROJECT_NAME` GitHub Actions variable.
+
+Generate a Cloudflare API token scoped to `Account > Cloudflare Pages > Edit` for that account — see [Create an API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) for the exact steps. Add it, along with your Cloudflare account ID, as the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secrets.
+
+Then push to `main` — CI will automatically build the app and publish it to Cloudflare Pages.

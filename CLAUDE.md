@@ -19,7 +19,8 @@ This is a minimalist React starter template written in TypeScript targeting the 
 
 ### Build Output
 
-- **`dist/`** — Static site produced by `pnpm vite build`; deployed to GitHub Pages by CI.
+- **`dist/`** — Static site produced by `pnpm vite build`; deployed to Cloudflare Pages by CI.
+- **`public/_redirects`** — Serves `index.html` for any unmatched path (Cloudflare Pages' native SPA fallback); not yet exercised since there's no client-side router, but needed once one's added.
 
 ## Tooling
 
@@ -36,7 +37,7 @@ Linter configured in `eslint.config.ts`.
 Automates CI/CD. Workflow files:
 
 - **`.github/workflows/ci.yaml`** — Triggers on push to `main`, pull requests, and manual dispatch. Validates the pre-commit hook, tests, and builds the app.
-- **`.github/workflows/deploy.yaml`** — Triggers on push to `main` and manual dispatch. Builds the app and deploys it to GitHub Pages.
+- **`.github/workflows/deploy.yaml`** — Triggers on push to `main` and manual dispatch. Builds the app and publishes `dist/` to Cloudflare Pages via `wrangler pages deploy` (Direct Upload, not Cloudflare's own Git integration) — requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets, and a `CLOUDFLARE_PROJECT_NAME` repo variable.
 
 ### Lefthook
 
@@ -56,7 +57,7 @@ Type checker. `tsconfig.json` (extends `@tsconfig/vite-react`) is used for type 
 
 ### Vite
 
-Dev server and bundler configured in `vite.config.ts`. Sets `base` dynamically from the `GITHUB_REPOSITORY` env var when running in GitHub Actions, so built asset paths resolve correctly when served from `https://<owner>.github.io/<repo>/`.
+Dev server and bundler configured in `vite.config.ts`.
 
 ### Vitest
 
@@ -86,4 +87,4 @@ Tests require Playwright's Chromium shell, installed automatically by the `prepa
 
 ## Building and Deploying
 
-Use `pnpm vite build` to produce the production bundle in `dist/`; this is for local verification only. Deployment happens automatically: pushing to `main` triggers `.github/workflows/deploy.yaml`, which builds the app and publishes `dist/` to GitHub Pages.
+Use `pnpm vite build` to produce the production bundle in `dist/`; this is for local verification only. Deployment happens automatically: pushing to `main` triggers `.github/workflows/deploy.yaml`, which builds the app and publishes `dist/` to Cloudflare Pages via Wrangler.
