@@ -19,7 +19,7 @@ This is a minimalist React starter template written in TypeScript targeting the 
 
 ### Build Output
 
-- **`dist/`** — Static site produced by `pnpm vite build`; deployed to Cloudflare Pages by CI.
+- **`dist/`** — Static site produced by `pnpm vite build`; deployed to Cloudflare Pages by CI/CD.
 - **`public/_redirects`** — Serves `index.html` for any unmatched path (Cloudflare Pages' native SPA fallback); not yet exercised since there's no client-side router, but needed once one's added.
 
 ## Tooling
@@ -34,10 +34,9 @@ Linter configured in `eslint.config.ts`.
 
 ### GitHub Actions
 
-Automates CI/CD. Workflow files:
+Automates CI/CD. Workflow file:
 
-- **`.github/workflows/ci.yaml`** — Triggers on push to `main`, pull requests, and manual dispatch. Validates the pre-commit hook, tests, and builds the app.
-- **`.github/workflows/deploy.yaml`** — Triggers on push to `main` and manual dispatch. Builds the app and publishes `dist/` to Cloudflare Pages via `wrangler pages deploy` (Direct Upload, not Cloudflare's own Git integration) — requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets, and a `CLOUDFLARE_PROJECT_NAME` repo variable.
+- **`.github/workflows/ci-cd.yaml`** — Triggers on push to `main`, pull requests, and manual dispatch. Validates the pre-commit hook and tests, then builds the app and publishes `dist/` to Cloudflare Pages via `wrangler pages deploy` (Direct Upload, not Cloudflare's own Git integration; production for `main`, a preview deployment for pull requests) — requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets, and a `CLOUDFLARE_PROJECT_NAME` repo variable. Also passes `gitHubToken` (needs the job's `deployments: write` permission) so each deploy shows up as a GitHub Deployment.
 
 ### Lefthook
 
@@ -87,4 +86,4 @@ Tests require Playwright's Chromium shell, installed automatically by the `prepa
 
 ## Building and Deploying
 
-Use `pnpm vite build` to produce the production bundle in `dist/`; this is for local verification only. Deployment happens automatically: pushing to `main` triggers `.github/workflows/deploy.yaml`, which builds the app and publishes `dist/` to Cloudflare Pages via Wrangler.
+Use `pnpm vite build` to produce the production bundle in `dist/`; this is for local verification only. Deployment happens automatically: pushing to `main` or opening a pull request triggers `.github/workflows/ci-cd.yaml`, which builds the app and publishes `dist/` to Cloudflare Pages via Wrangler — production for `main`, a preview deployment for pull requests.
