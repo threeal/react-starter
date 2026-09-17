@@ -57,7 +57,7 @@ lefthook run pre-commit
 
 If any file changes during the run, re-stage the changed files and retry. The hook also runs automatically on each `git commit` — if it fails, fix the reported issues, re-stage, and commit again.
 
-After committing, push to `main` or open a pull request from another branch — CI will run the pre-commit hook across all files, the full test suite, and `pnpm vite build`.
+After committing, push to `main` or open a pull request from another branch — CI/CD will run the pre-commit hook across all files, the full test suite, and `pnpm vite build`, then deploy the result to Cloudflare Pages (see [Deploying](#deploying)).
 
 ## Deploying
 
@@ -72,4 +72,4 @@ Add `<project-name>` as the `CLOUDFLARE_PROJECT_NAME` GitHub Actions variable.
 
 Generate a Cloudflare API token scoped to `Account > Cloudflare Pages > Edit` for that account — see [Create an API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) for the exact steps. Add it, along with your Cloudflare account ID, as the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secrets.
 
-Then push to `main` — CI will automatically build the app and publish it to Cloudflare Pages.
+Then push to `main` or open a pull request — CI/CD will automatically build the app and publish it to Cloudflare Pages, as a production deployment for `main` and a preview deployment for pull requests.
