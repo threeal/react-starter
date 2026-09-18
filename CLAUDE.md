@@ -15,6 +15,7 @@ This is a minimalist React starter template written in TypeScript targeting the 
 - **`src/index.tsx`** — Entry point; mounts the router into the `#root` element (defined in `index.html`) inside `StrictMode`.
 - **`src/router.tsx`** — Client-side route config (`createBrowserRouter`), mapping paths to page components.
 - **`src/pages/`** — Route-bound page components. `HomePage.tsx` is the sample page — a placeholder to replace with your own; `NotFoundPage.tsx` handles unmatched paths.
+- **`src/components/`** — Shared, reusable UI pieces used across pages (e.g. `Button.tsx`, `Description.tsx`).
 - **`src/*.css`** — Stylesheets imported directly into their corresponding component/entry files.
 - **`src/*.test.tsx`** — Vitest test files co-located with source.
 
