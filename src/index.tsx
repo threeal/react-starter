@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Counter from "./Counter.tsx";
+import { RouterProvider } from "react-router";
+import { router } from "./router.tsx";
 
 const root = document.getElementById("root");
 if (root) {
   createRoot(root).render(
     <StrictMode>
-      <Counter />
+      <RouterProvider router={router} />
     </StrictMode>,
   );
 }

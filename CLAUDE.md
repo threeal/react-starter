@@ -6,21 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## About This Repository
 
-This is a minimalist React starter template written in TypeScript targeting the browser (ESM). The counter app in `src/` is a placeholder — replace it with your actual application when starting a new project.
+This is a minimalist React starter template written in TypeScript targeting the browser (ESM). The home page in `src/pages/HomePage.tsx` is a placeholder — replace it with your actual application when starting a new project.
 
 ## Architecture
 
 ### Source Files
 
-- **`src/index.tsx`** — Entry point; mounts components into the `#root` element (defined in `index.html`) inside `StrictMode`.
-- **`src/Counter.tsx`** — The sample component — a placeholder to replace with your own.
+- **`src/index.tsx`** — Entry point; mounts the router into the `#root` element (defined in `index.html`) inside `StrictMode`.
+- **`src/router.tsx`** — Client-side route config (`createBrowserRouter`), mapping paths to page components.
+- **`src/pages/`** — Route-bound page components. `HomePage.tsx` is the sample page — a placeholder to replace with your own; `NotFoundPage.tsx` handles unmatched paths.
 - **`src/*.css`** — Stylesheets imported directly into their corresponding component/entry files.
 - **`src/*.test.tsx`** — Vitest test files co-located with source.
 
 ### Build Output
 
 - **`dist/`** — Static site produced by `pnpm vite build`; deployed to Cloudflare Pages by CI/CD.
-- **`public/_redirects`** — Serves `index.html` for any unmatched path (Cloudflare Pages' native SPA fallback); not yet exercised since there's no client-side router, but needed once one's added.
+- **`public/_redirects`** — Serves `index.html` for any unmatched path (Cloudflare Pages' native SPA fallback), letting the client-side router in `src/router.tsx` take over and render `NotFoundPage` for unknown paths.
 
 ## Tooling
 

@@ -1,3 +1,7 @@
+.description {
+  margin: 0 0 1em;
+}
+
 .button {
   transition: border-color 0.25s;
   cursor: pointer;
