@@ -66,7 +66,7 @@ Test runner configured in `vitest.config.ts` with 100% coverage threshold requir
 
 ## Checking and Fixing
 
-Run the pre-commit hook to check types, formatting, and lint locally:
+Run the pre-commit hook to check types, lint, and formatting locally:
 
 ```sh
 lefthook run pre-commit              # staged files only (default)
