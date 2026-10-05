@@ -19,3 +19,8 @@ updates:
           - react-dom
           - "@types/react"
           - "@types/react-dom"
+      vitest:
+        patterns:
+          - vitest
+          - "@vitest/coverage-v8"
+          - "@vitest/browser-playwright"
