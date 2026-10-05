@@ -49,7 +49,7 @@ pnpm vitest run
 
 The project enforces 100% code coverage on every run.
 
-Before committing, run the pre-commit hook to install dependencies, type-check, and fix formatting and lint:
+Before committing, run the pre-commit hook to install dependencies, type-check, and fix lint and formatting:
 
 ```sh
 lefthook run pre-commit
