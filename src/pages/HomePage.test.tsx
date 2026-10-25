@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
-import HomePage from "./HomePage";
+import HomePage from "./HomePage.tsx";
 
 test("counter button increments the count", async () => {
   const screen = await render(<HomePage />);
