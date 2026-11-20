@@ -24,10 +24,7 @@ lefthook install
 
 Replace or extend the template files to fit your project:
 
-- **`src/components/`** — Replace or extend the shared components used across pages.
-- **`src/pages/HomePage.tsx`** — Replace with your own home page.
-- **`src/pages/NotFoundPage.tsx`** — Customize the page shown for unknown paths.
-- **`src/router.tsx`** — Add routes for your own pages.
+- **`src/`** — Replace the placeholder pages, components, and tests with your own code.
 - **`CLAUDE.md`** — Replace with guidance specific to your project.
 - **`index.html`** — Update the page title, icon, and other metadata.
 - **`LICENSE`** — Replace with your preferred license, or keep the [Unlicense](https://unlicense.org/).
@@ -35,7 +32,7 @@ Replace or extend the template files to fit your project:
 
 ## Development
 
-Write code in `src/`. Try the app locally in development mode with:
+Try the app locally in development mode with:
 
 ```sh
 pnpm vite
@@ -43,13 +40,13 @@ pnpm vite
 
 This supports hot reload, so changes to the source code are reflected directly in the running app.
 
-Test files live alongside source as `*.test.tsx`. Run the test suite with:
+Run the tests with coverage through Vitest:
 
 ```sh
 pnpm vitest run
 ```
 
-The project enforces 100% code coverage on every run.
+The project enforces 100% code coverage, counting only files the tests import.
 
 Each `git commit` runs the pre-commit hook registered during setup, which checks your changes and fixes what it can in place. If it fails, fix any reported issues, re-stage the changed files, and commit again.
 
